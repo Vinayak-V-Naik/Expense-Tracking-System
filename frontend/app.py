@@ -28,7 +28,7 @@ if st.session_state.user is None:
 
         if st.button("Login", key="login_button"):
             try:
-                response = requests.post("http://127.0.0.1:8000/login", json={
+                response = requests.post(API_URL, json={
                     "username": username,
                     "password": password
                 })
@@ -56,7 +56,7 @@ if st.session_state.user is None:
 
         if st.button("Signup", key="signup_button"):
             try:
-                response = requests.post("http://127.0.0.1:8000/signup", json={
+                response = requests.post(API_URL, json={
                     "actual_name": actual_name,
                     "username": username_s,
                     "password": password_s
@@ -92,4 +92,5 @@ else:
 
     with tab3:
         analytics_months_tab(user_id=st.session_state.user["id"], token=st.session_state.token)
+
 
