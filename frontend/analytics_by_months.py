@@ -3,7 +3,7 @@ from datetime import datetime
 import requests
 import pandas as pd
 import os
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com")
 
 
 def analytics_months_tab(user_id, token):
@@ -89,3 +89,4 @@ def analytics_months_tab(user_id, token):
         st.error(f"An error occurred: {str(e)}")
         import traceback
         st.code(traceback.format_exc())
+
