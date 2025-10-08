@@ -4,7 +4,7 @@ from add_update import add_update_tab
 from analytics_by_category import analytics_category_tab
 from analytics_by_months import analytics_months_tab
 import os
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com")
 
 st.set_page_config(page_title="Expense Tracking System", layout="wide")
 st.title("Expense Tracking System")
@@ -92,3 +92,4 @@ else:
 
     with tab3:
         analytics_months_tab(user_id=st.session_state.user["id"], token=st.session_state.token)
+
