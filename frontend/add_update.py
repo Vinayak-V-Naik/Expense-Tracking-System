@@ -2,7 +2,7 @@ import streamlit as st
 from datetime import datetime
 import requests
 import os
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com")
 
 
 
@@ -110,3 +110,4 @@ def add_update_tab(user_id, token):
                     st.rerun()
                 else:
                     st.error(f"Failed to update expenses: {response.text}")
+
