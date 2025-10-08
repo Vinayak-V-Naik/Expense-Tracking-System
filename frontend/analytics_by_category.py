@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import plotly.express as px
 import os
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com")
 
 def analytics_category_tab(user_id, token):
     st.title("Expense Analytics By Category")
@@ -138,3 +138,4 @@ def analytics_category_tab(user_id, token):
         st.error(f"An error occurred: {str(e)}")
         import traceback
         st.code(traceback.format_exc())
+
