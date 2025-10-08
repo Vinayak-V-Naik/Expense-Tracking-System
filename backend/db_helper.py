@@ -1,6 +1,7 @@
 import mysql.connector
 from contextlib import contextmanager
 from logging_setup import setup_logger
+import os
 
 logger = setup_logger('db_helper')
 
@@ -8,11 +9,12 @@ logger = setup_logger('db_helper')
 # Database connection context manager
 @contextmanager
 def get_db_cursor(commit=False):
-    connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="expense_manager"
+    connection=mysql.connector.connect(
+        host=os.getenv("DB_HOST", "localhost"),
+        user=os.getenv("DB_USER", "root"),
+        password=os.getenv("DB_PASSWORD", "root"),
+        database=os.getenv("DB_NAME", "expense_manager"),
+        port=int(os.getenv("DB_PORT", "3306"))
     )
     cursor = connection.cursor(dictionary=True)
     yield cursor
