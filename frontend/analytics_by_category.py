@@ -3,9 +3,8 @@ from datetime import datetime, timedelta
 import requests
 import pandas as pd
 import plotly.express as px
-
-API_URL = "http://localhost:8000"
-
+import os
+API_URL = os.getenv("API_URL", "http://localhost:8000")
 
 def analytics_category_tab(user_id, token):
     st.title("Expense Analytics By Category")
