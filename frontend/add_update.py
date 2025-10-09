@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime
+from datetime import datetime,date
 import requests
 import os
 API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com")
@@ -7,7 +7,7 @@ API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com
 
 
 def add_update_tab(user_id, token):
-    selected_date = st.date_input("Enter Date", value=date.today(), label_visibility="collapsed")
+    selected_date = st.date_input("Enter Date", value=datetime.today().date(), label_visibility="collapsed")
     selected_date_str = selected_date.strftime("%Y-%m-%d")
 
     # Create a unique key based on date to force form reset when date changes
@@ -110,6 +110,7 @@ def add_update_tab(user_id, token):
                     st.rerun()
                 else:
                     st.error(f"Failed to update expenses: {response.text}")
+
 
 
 
