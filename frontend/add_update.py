@@ -6,6 +6,7 @@ API_URL = os.getenv("API_URL", "https://expense-tracking-system-app.onrender.com
 
 
 
+
 def add_update_tab(user_id, token):
     selected_date = st.date_input("Enter Date", value=datetime.today().date(), label_visibility="collapsed")
     selected_date_str = selected_date.strftime("%Y-%m-%d")
@@ -110,6 +111,7 @@ def add_update_tab(user_id, token):
                     st.rerun()
                 else:
                     st.error(f"Failed to update expenses: {response.text}")
+
 
 
 
